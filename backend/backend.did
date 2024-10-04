@@ -1,0 +1,16 @@
+type Puzzle = 
+ record {
+   clues: vec Clue;
+   grid: vec vec opt nat32;
+   id: nat;
+ };
+type Clue = 
+ record {
+   direction: text;
+   number: nat;
+   "text": text;
+ };
+service : {
+  getPuzzlePublic: (nat) -> (opt Puzzle) query;
+  validateAnswer: (nat, nat, nat, nat32) -> (bool);
+}
